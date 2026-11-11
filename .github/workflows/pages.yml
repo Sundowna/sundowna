@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -p _site/assets
           cp index.html styles.css app.js .nojekyll _site/
-          cp assets/favicon.svg _site/assets/
+          cp -R assets/. _site/assets/
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:

@@ -112,76 +112,39 @@ document.querySelector('#copy-share-url').addEventListener('click', async () => 
   }
 });
 
-// Move the hero icons counterclockwise; keep text and glyphs upright.
+// Native SVG motion carries input tokens through app synapses to Second Brain.
 (() => {
-  const stage = document.querySelector('.orbital-stage');
+  const stage = document.querySelector('.neural-stage');
   if (!stage) return;
-  const toggle = stage.querySelector('.motion-toggle');
+  const toggle = stage.querySelector('.neural-toggle');
+  const maps = [...stage.querySelectorAll('.neural-map')];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const satellites = ['chat', 'notes', 'voice'].map((key, index) => ({
-    node: stage.querySelector(`[data-orbit="${key}"]`),
-    trail: stage.querySelector(`[data-trail="${key}"]`),
-    gradient: stage.querySelector(`#trail-${key}`),
-    phase: -Math.PI * 5 / 6 + index * Math.PI * 2 / 3
-  }));
-  const period = 44000;
-  let elapsed = 0;
-  let previousTime = null;
-  let frame = null;
+  const mobileLayout = window.matchMedia('(max-width: 640px)');
   let paused = false;
-  let interacting = false;
   let visible = true;
-  const point = (angle) => ({x: 600 + 432 * Math.cos(angle), y: 250 + 150 * Math.sin(angle)});
-  function paint() {
-    for (const item of satellites) {
-      const angle = item.phase - elapsed / period * Math.PI * 2;
-      const head = point(angle);
-      const tail = point(angle + 1.1);
-      item.node.style.left = `${head.x / 12}%`;
-      item.node.style.top = `${head.y / 5}%`;
-      item.trail.setAttribute('d', `M ${head.x} ${head.y} A 432 150 0 0 1 ${tail.x} ${tail.y}`);
-      for (const [name, value] of Object.entries({x1: head.x, y1: head.y, x2: tail.x, y2: tail.y})) item.gradient.setAttribute(name, value);
+  function update() {
+    const reduced = reducedMotion.matches;
+    const stopped = paused || reduced || !visible || document.hidden;
+    stage.classList.toggle('signals-paused', stopped);
+    stage.classList.toggle('signals-reduced', reduced);
+    toggle.hidden = false;
+    toggle.disabled = reduced;
+    toggle.setAttribute('aria-pressed', String(paused));
+    toggle.innerHTML = reduced ? 'Motion reduced' : paused ? 'Resume signals <span aria-hidden="true">▷</span>' : 'Pause signals <span aria-hidden="true">Ⅱ</span>';
+    for (const map of maps) {
+      const activeLayout = map.classList.contains(mobileLayout.matches ? 'neural-tall' : 'neural-wide');
+      if (stopped || !activeLayout) {
+        if (typeof map.pauseAnimations === 'function') map.pauseAnimations();
+      } else if (typeof map.unpauseAnimations === 'function') map.unpauseAnimations();
     }
   }
-  function running() {
-    return !paused && !interacting && visible && !document.hidden && !reducedMotion.matches;
-  }
-  function tick(time) {
-    frame = null;
-    if (!running()) { previousTime = null; return; }
-    if (previousTime !== null) elapsed = (elapsed + Math.min(time - previousTime, 64)) % period;
-    previousTime = time;
-    paint();
-    frame = requestAnimationFrame(tick);
-  }
-  function update() {
-    if (frame !== null) cancelAnimationFrame(frame);
-    frame = null;
-    previousTime = null;
-    toggle.disabled = reducedMotion.matches;
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.innerHTML = reducedMotion.matches ? 'Motion reduced' : paused ? 'Resume motion <span aria-hidden="true">▷</span>' : 'Pause motion <span aria-hidden="true">Ⅱ</span>';
-    if (running()) frame = requestAnimationFrame(tick);
-  }
   toggle.addEventListener('click', () => { paused = !paused; update(); });
-  // Freeze while a visitor points at, or tabs to, a moving app link.
-  const freeze = () => { interacting = true; update(); };
-  const unfreeze = () => {
-    interacting = satellites.some(({node}) => node.matches(':hover, :focus-within'));
-    update();
-  };
-  for (const {node} of satellites) {
-    node.addEventListener('pointerenter', freeze);
-    node.addEventListener('pointerleave', unfreeze);
-    node.addEventListener('focus', freeze);
-    node.addEventListener('blur', unfreeze);
-  }
-  document.addEventListener('visibilitychange', update);
   reducedMotion.addEventListener('change', update);
+  mobileLayout.addEventListener('change', update);
+  document.addEventListener('visibilitychange', update);
   if ('IntersectionObserver' in window) new IntersectionObserver(([entry]) => {
     visible = entry.isIntersecting;
     update();
   }).observe(stage);
-  paint();
   update();
 })();
