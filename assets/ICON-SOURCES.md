@@ -1,1 +1,0 @@
-Product SVGs: https://github.com/homarr-labs/dashboard-icons (retrieved 2026-11-11). Product names and logos belong to their respective owners. Generic voice/image/share/note/file/link illustrations are original. These appear in an illustrative concept map, not a claim of supported integrations.
