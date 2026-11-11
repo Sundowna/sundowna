@@ -25,12 +25,25 @@
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="eyebrow"><span class="status-dot"></span> A PERSONAL SOFTWARE COLLECTION <span class="hero-edition">BY SUNDOWNA / VOL. 01</span></div>
       <div class="hero-heading"><h1 id="hero-title">A little less<br><em>scattered.</em></h1><div class="hero-intro"><span class="spark" aria-hidden="true">✳</span><p>Your conversations, notes, and passing thoughts.<br>A few thoughtful tools to bring them home.</p><a class="button button-lime" href="#apps">Find your next tool <span aria-hidden="true">↘</span></a><p class="hero-footnote">Made for your mind. Built around Obsidian.</p></div></div>
-      <div class="hero-stage">
-        <div class="stage-caption"><span>THREE WAYS IN.<br>ONE SECOND BRAIN.</span><span class="stage-line"></span><span>EXPLORE<br>THE CONNECTIONS ↗</span></div>
-        <div class="connection-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="central-mark">sb<span>YOUR SECOND BRAIN</span></div></div>
-        <a class="floating-tile float-chat" href="#chatbridge"><span class="app-icon icon-chat" aria-hidden="true">↔</span><span><b>AI ChatBridge</b><small>Good chats, kept.</small></span><span class="tile-arrow" aria-hidden="true">↗</span></a>
-        <a class="floating-tile float-notes" href="#onenote"><span class="app-icon icon-notes" aria-hidden="true">▤</span><span><b>OneNote Style</b><small>A familiar place to think.</small></span><span class="tile-arrow" aria-hidden="true">↗</span></a>
-        <a class="floating-tile float-voice" href="#capture"><span class="app-icon icon-voice" aria-hidden="true">ııı</span><span><b>Brain Capture</b><small>Catch it before it goes.</small></span><span class="tile-arrow" aria-hidden="true">↗</span></a>
+      <div class="hero-stage orbital-stage" aria-label="Second Brain apps orbiting counterclockwise">
+        <div class="stage-caption"><span>THREE WAYS IN.<br>ONE SECOND BRAIN.</span><span class="stage-line"></span><button class="motion-toggle" type="button" aria-pressed="false">Pause motion <span aria-hidden="true">Ⅱ</span></button></div>
+        <svg class="orbital-tracks" viewBox="0 0 1200 500" preserveAspectRatio="none" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="trail-chat" gradientUnits="userSpaceOnUse"><stop stop-color="#c6ff3a"/><stop offset="1" stop-color="#c6ff3a" stop-opacity="0"/></linearGradient>
+            <linearGradient id="trail-notes" gradientUnits="userSpaceOnUse"><stop stop-color="#9d64ff"/><stop offset="1" stop-color="#9d64ff" stop-opacity="0"/></linearGradient>
+            <linearGradient id="trail-voice" gradientUnits="userSpaceOnUse"><stop stop-color="#ff792e"/><stop offset="1" stop-color="#ff792e" stop-opacity="0"/></linearGradient>
+          </defs>
+          <ellipse cx="600" cy="250" rx="312" ry="100" class="orbit-guide"/>
+          <ellipse cx="600" cy="250" rx="432" ry="150" class="orbit-guide orbit-guide-main"/>
+          <ellipse cx="600" cy="250" rx="552" ry="203" class="orbit-guide"/>
+          <path data-trail="chat" stroke="url(#trail-chat)" class="orbit-trail"/>
+          <path data-trail="notes" stroke="url(#trail-notes)" class="orbit-trail"/>
+          <path data-trail="voice" stroke="url(#trail-voice)" class="orbit-trail"/>
+        </svg>
+        <div class="central-mark orbital-center" aria-hidden="true">sb<span>YOUR SECOND BRAIN</span></div>
+        <a class="orbit-app orbit-chat" data-orbit="chat" href="#chatbridge" aria-label="Explore AI ChatBridge"><span class="orbital-icon"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13h32v22H25l-9 7v-7h-6z"/><path d="M26 42h13l9 7v-7h6V24h-6M18 21h16M18 28h9"/></svg></span><span class="orbit-app-label">AI ChatBridge <span aria-hidden="true">↗</span></span></a>
+        <a class="orbit-app orbit-notes" data-orbit="notes" href="#onenote" aria-label="Explore OneNote Style"><span class="orbital-icon"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="11" width="35" height="43" rx="3"/><path d="M24 11v43M31 23h11M31 31h11M31 39h7M9 20h9M9 31h9M9 43h9M49 18h5v8h-5M49 30h5v8h-5"/></svg></span><span class="orbit-app-label">OneNote Style <span aria-hidden="true">↗</span></span></a>
+        <a class="orbit-app orbit-voice" data-orbit="voice" href="#capture" aria-label="Explore Brain Capture"><span class="orbital-icon"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="25" y="10" width="14" height="28" rx="7"/><path d="M17 29v3a15 15 0 0 0 30 0v-3M32 47v8M23 55h18M9 24v13M55 24v13"/></svg></span><span class="orbit-app-label">Brain Capture <span aria-hidden="true">↗</span></span></a>
         <div class="stage-bottom"><span><i></i> IDEAS BELONG TOGETHER.</span><span>CHAT / WRITE / CAPTURE</span></div>
       </div>
     </section>
