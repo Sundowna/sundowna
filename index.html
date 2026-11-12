@@ -16,24 +16,27 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="hero-shell">
+    <div class="hero-vortex" id="heroVortex" aria-hidden="true"></div>
+    <div class="hero-shade" aria-hidden="true"></div>
   <header class="site-header wrap">
     <a class="brand" href="#" aria-label="Second Brain home"><span class="brand-symbol" aria-hidden="true">s<span>b</span></span><span>SECOND<br>BRAIN<span class="brand-dot">✳</span></span></a>
     <nav aria-label="Main navigation"><a href="#apps">The apps <span>03</span></a><a href="#idea">The idea</a><a href="#start">Start here <span aria-hidden="true">↗</span></a></nav>
     <button class="share-button" data-share aria-label="Copy a link to this collection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l2-2"/></svg><span>Share collection</span></button>
   </header>
-  <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="eyebrow"><span class="status-dot"></span> A PERSONAL SOFTWARE COLLECTION <span class="hero-edition">BY SUNDOWNA / VOL. 01</span></div>
       <div class="hero-heading"><h1 id="hero-title">A little less<br><em>scattered.</em></h1><div class="hero-intro"><span class="spark" aria-hidden="true">✳</span><p>Your conversations, notes, and passing thoughts.<br>A few thoughtful tools to bring them home.</p><a class="button button-lime" href="#apps">Find your next tool <span aria-hidden="true">↘</span></a><p class="hero-footnote">Made for your mind. Built around Obsidian.</p></div></div>
-      <div class="hero-stage">
-        <div class="stage-caption"><span>THREE WAYS IN.<br>ONE SECOND BRAIN.</span><span class="stage-line"></span><span>EXPLORE<br>THE CONNECTIONS ↗</span></div>
-        <div class="connection-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="central-mark">sb<span>YOUR SECOND BRAIN</span></div></div>
+      <div class="hero-ways">
+        <span class="ways-label">THREE WAYS IN.<br>ONE SECOND BRAIN.</span>
         <a class="floating-tile float-chat" href="#chatbridge"><span class="app-icon icon-chat" aria-hidden="true">↔</span><span><b>AI ChatBridge</b><small>Good chats, kept.</small></span><span class="tile-arrow" aria-hidden="true">↗</span></a>
         <a class="floating-tile float-notes" href="#onenote"><span class="app-icon icon-notes" aria-hidden="true">▤</span><span><b>OneNote Style</b><small>A familiar place to think.</small></span><span class="tile-arrow" aria-hidden="true">↗</span></a>
         <a class="floating-tile float-voice" href="#capture"><span class="app-icon icon-voice" aria-hidden="true">ııı</span><span><b>Brain Capture</b><small>Catch it before it goes.</small></span><span class="tile-arrow" aria-hidden="true">↗</span></a>
-        <div class="stage-bottom"><span><i></i> IDEAS BELONG TOGETHER.</span><span>CHAT / WRITE / CAPTURE</span></div>
       </div>
+      <a class="scroll-cue" href="#apps" aria-label="Scroll to the apps"><span>Scroll</span><i aria-hidden="true"></i></a>
     </section>
+  </div>
+  <main id="main">
     <section id="apps" class="apps-section wrap" aria-labelledby="apps-heading">
       <div class="section-meta"><span>01 / THE COLLECTION</span><span>SMALL TOOLS. BIG HEADSPACE.</span></div>
       <div class="section-title"><h2 id="apps-heading">Meet your<br><em>supporting cast.</em></h2><p>Pick the piece you’re missing.<br>Use one, or make yourself at home with all three.</p></div>
@@ -63,5 +66,10 @@
   <dialog id="app-dialog" aria-labelledby="dialog-title"><div class="dialog-shell"><button class="dialog-close" aria-label="Close app details">✕</button><div id="dialog-content"></div></div></dialog>
   <dialog id="share-dialog" aria-labelledby="share-title"><div class="dialog-shell"><button class="dialog-close" aria-label="Close sharing">✕</button><span class="eyebrow">PASS IT ON</span><h2 id="share-title">A little more<br><em>headspace.</em></h2><label for="share-url">Copy this link and send it to a friend.</label><input id="share-url" readonly type="url"><button class="button button-lime" id="copy-share-url">Copy link <span aria-hidden="true">↗</span></button></div></dialog>
   <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module">
+    import { mountVortex } from "./assets/vortex.js";
+    // lime = AI ChatBridge, lavender = OneNote Style, peach = Brain Capture
+    mountVortex(document.getElementById("heroVortex"), { palette: ["#d0ec88", "#c5b3f0", "#f2b587"], bg: "#11130f", offset: () => 0 });
+  </script>
 </body>
 </html>
