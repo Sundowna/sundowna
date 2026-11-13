@@ -9,11 +9,10 @@ const apps = {
       <div class="dialog-pills"><span>Obsidian 1.11.4+</span><span>Windows · macOS · Linux</span><span>Free · open source</span></div>
       <h3>Get started on your computer</h3>
       <ol><li><strong>Have Obsidian ready.</strong> Open the vault (your notes folder) where you want your conversations to live.</li>
-      <li><strong>Download the three plugin files</strong> from the release page: <code>main.js</code>, <code>manifest.json</code>, and <code>styles.css</code>.</li>
-      <li><strong>Put them in your vault</strong> in <code>.obsidian/plugins/ai-chatbridge/</code>. Create that folder if it doesn’t exist. The <code>.obsidian</code> folder may be hidden in your file manager.</li>
-      <li><strong>Reload Obsidian.</strong> Go to Settings → Community plugins, enable community plugins if prompted, and enable AI ChatBridge.</li>
+      <li><strong>Install it from Obsidian.</strong> Go to Settings → Community plugins, enable community plugins if prompted, then select Browse and search for AI ChatBridge.</li>
+      <li><strong>Select Install, then Enable.</strong> Obsidian keeps the plugin up to date for you.</li>
       <li><strong>Connect and sync.</strong> Open Settings → AI ChatBridge, choose a provider, log in, and select Sync now. The first run imports up to three chats so you can check everything looks right.</li></ol>
-      <div class="dialog-actions"><a class="button button-lime" href="https://github.com/Sundowna/obsidian-ai-chatbridge/releases/latest" target="_blank" rel="noopener noreferrer">Get the latest release <span aria-hidden="true">↗</span></a><a href="https://github.com/Sundowna/obsidian-ai-chatbridge#installation" target="_blank" rel="noopener noreferrer">Full setup guide ↗</a></div>
+      <div class="dialog-actions"><a class="button button-lime" href="https://community.obsidian.md/plugins/ai-chatbridge" target="_blank" rel="noopener noreferrer">Get AI ChatBridge <span aria-hidden="true">↗</span></a><a href="https://github.com/Sundowna/obsidian-ai-chatbridge#installation" target="_blank" rel="noopener noreferrer">Full setup guide ↗</a></div>
       <p class="dialog-note">Desktop only. You’ll need your own AI provider accounts. The plugin reads your conversations without changing them on the provider’s side. Provider support can change; see the project’s guide for current details.</p>`
   },
   notes: {
@@ -24,12 +23,11 @@ const apps = {
       <div class="dialog-pills"><span>Obsidian plugin</span><span>Desktop only</span><span>Free · open source</span></div>
       <h3>Make your notes feel like home</h3>
       <ol><li><strong>Open your Obsidian vault.</strong> Your top-level folders become notebooks; folders inside them become sections.</li>
-      <li><strong>Get the plugin files.</strong> On the project page, open <code>main.js</code>, <code>manifest.json</code>, and <code>styles.css</code>. For each one, use GitHub’s “Download raw file” button.</li>
-      <li><strong>Add them to your vault</strong> in <code>.obsidian/plugins/onenote-style/</code>. Create the folder if needed. You may need to show hidden folders to see <code>.obsidian</code>.</li>
-      <li><strong>Reload Obsidian.</strong> In Settings → Community plugins, enable community plugins if prompted, then enable OneNote Style. Your Notebooks and Pages panes will open.</li>
+      <li><strong>Install it from Obsidian.</strong> In Settings → Community plugins, enable community plugins if prompted, then select Browse and search for OneNote Style.</li>
+      <li><strong>Select Install, then Enable.</strong> Your Notebooks and Pages panes will open.</li>
       <li><strong>Keep your page titles visible.</strong> In Settings → Appearance, leave “Show inline title” on to see the page date beneath each title.</li></ol>
-      <div class="dialog-actions"><a class="button button-lime" href="https://github.com/Sundowna/obsidian-onenote-style" target="_blank" rel="noopener noreferrer">Get OneNote Style <span aria-hidden="true">↗</span></a><a href="https://github.com/Sundowna/obsidian-onenote-style#install" target="_blank" rel="noopener noreferrer">Full setup guide ↗</a></div>
-      <p class="dialog-note">Want just the look? There’s also a <a href="https://github.com/Sundowna/obsidian-onenote-theme" target="_blank" rel="noopener noreferrer">OneNote Style theme</a>. The plugin doesn’t import OneNote files or add ink drawing. Free-form pages use Obsidian Canvas.</p>`
+      <div class="dialog-actions"><a class="button button-lime" href="https://community.obsidian.md/plugins/onenote-style" target="_blank" rel="noopener noreferrer">Get OneNote Style <span aria-hidden="true">↗</span></a><a href="https://github.com/Sundowna/obsidian-onenote-style#install" target="_blank" rel="noopener noreferrer">Full setup guide ↗</a></div>
+      <p class="dialog-note">Want just the look? There’s also a <a href="https://community.obsidian.md/themes/onenote-style" target="_blank" rel="noopener noreferrer">OneNote Style theme</a>. The plugin doesn’t import OneNote files or add ink drawing. Free-form pages use Obsidian Canvas.</p>`
   },
   voice: {
     anchor: 'capture',
